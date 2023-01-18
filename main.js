@@ -11,19 +11,19 @@ Webcam.attach( '#camera' );
 function take_snapshot()
 {
     Webcam.snap(function(data_uri) {
-        document.getElementById("result").innerHTML = '<img id="captured image" src"'+data_uri+'"/>';
+        document.getElementById("result").innerHTML = '<img id="captured image" src ="'+data_uri+'"/>';
 
     });
 }
-console.log('m15 version:', m15.version);
-classifier = m15.imageClassifier('https://teachablemachine.withgoogle.com/models/pdBbhq2Ql/model.json',modelLoaded);
+console.log('ml5 version:', m15.version);
+classifier = ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/pdBbhq2Ql/model.json',modelLoaded);
 
 function modelLoaded() {
     console.log('Model Loaded');
 }
 function check()
 {
-    img = document.getElementById("captured_image");
+    img = document.getElementById('captured_image');
     classifier.classify(img, Result);
 }
 function Result(error, results) {
